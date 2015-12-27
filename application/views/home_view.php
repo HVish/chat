@@ -7,7 +7,7 @@
 					<h4>Log In</h4>
 				</div>
 				<div class="panel-body">
-					<form action="" method="post" role="form">
+					<form action="<?php echo base_url()?>index.php/home/submit" method="post" role="form">
 						<div class="form-group">
 							<label for="user">Username</label>
 							<input type="text" name="user" class="form-control" placeholder="Enter Username">
@@ -20,7 +20,7 @@
 							<input type="submit" class="btn btn-md btn-default">
 						</div>
 					</form>
-					<a href="signup.php">Signup here</a>
+					<a href="<?php echo base_url()?>index.php/signup">Signup here</a>
 				</div>
 			</div>
 		</div>
