@@ -79,3 +79,17 @@ a:focus {
     color: #FF8211;
     border: 1px solid rgba(255,130,17,0.6);
 }
+.userbody {
+    height: 67vh;
+}
+.message, .online{
+    height: 55vh;
+    overflow-y: auto;
+}
+.chat{
+    height: 39vh;
+    overflow-y: auto;
+}
+.userinput{
+    resize: none;
+}
