@@ -1,0 +1,81 @@
+.navbar-default {
+    background-color: rgb(255, 130, 17);
+    border-color: #FF8211;
+}
+.navbar-default .navbar-nav>li>a {
+    color: rgb(255, 255, 255);
+}
+.navbar-default .navbar-toggle {
+    border-color: rgba(255,255,255,0.4);
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: rgba(255,255,255,0.9);
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 173, 0, 0.75);
+}
+.navbar-default .navbar-brand {
+    color: rgb(255, 255, 255);
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #FFA204;
+}
+.panel-primary {
+    border-color: #FF8211;
+}
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: rgb(255, 130, 17);
+    border-color: rgb(255, 130, 17);
+}
+body {
+    color: rgba(255,150,0,1);
+}
+.btn-default {
+    color: #FF8211;
+    background-color: #fff;
+    border-color: #FF8211;
+}
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+    color: #FF8211;
+    background-color: rgba(253,255,140,1);
+    border-color: #FF8211;
+}
+default.focus, .btn-default:focus {
+    color: #FF8211;
+    background-color: #FDFFB9;
+    border-color: #FF8211;
+    outline-color: rgba(255, 130, 17, 0.67);
+}
+.btn-default:hover {
+    color: #FF8211;
+    background-color: #FDFFB9;
+    border-color: #FF8211;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color: #FF8211;
+    text-decoration: none;
+}
+a {
+    color: #FF8211;
+    text-decoration: none;
+}
+a:focus, a:hover {
+    color: #FF0000;
+    text-decoration: underline;
+}
+a:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+.form-control:focus {
+    border-color: #FF8211;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(251, 155, 67);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(255, 130, 17);
+}
+.form-control {
+    color: #FF8211;
+    border: 1px solid rgba(255,130,17,0.6);
+}
