@@ -8,11 +8,11 @@ class Login extends CI_Model {
 	 }
 	 public function check($u,$p){
 		$query = $this->db->get_where('users', array('username' => $u,'password' => $p));
-		$row = $query->row();
+		$row = $query->row_array();
 
 		if (isset($row))
 		{
-			return true;
+			return $row;
 		}
 		else{
 			return false;

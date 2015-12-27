@@ -7,7 +7,10 @@
 					<h4>Log In</h4>
 				</div>
 				<div class="panel-body">
-					<form action="<?php echo base_url()?>index.php/home/submit" method="post" role="form">
+					<form action="<?php echo base_url()?>index.php/home/login" method="post" role="form">
+						<?php if(!$loginfailed) echo "<!--";?><div class="alert alert-danger">
+							<strong>Login Failed!</strong> Invalid username or password.
+						</div><?php if(!$loginfailed) echo "-->";?>
 						<div class="form-group">
 							<label for="user">Username</label>
 							<input type="text" name="user" class="form-control" placeholder="Enter Username">
