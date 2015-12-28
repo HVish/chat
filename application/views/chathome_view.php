@@ -45,8 +45,8 @@
 					<a class="list-group-item"><span class="badge">3</span> Warnings</a> 
 				</div>
 			</div>
-			<div class="row userinput">
-				<textarea class="col-sm-12" name="" id="" rows="4"></textarea>
+			<div class="row">
+				<textarea class="col-sm-12 userinput" name="" id="" rows="4" placeholder="Type a message..."></textarea>
 			</div>
 		</div>
 		<div class="col-sm-3 panel panel-primary ">
