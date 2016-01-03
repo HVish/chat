@@ -32,12 +32,18 @@ class Home extends CI_Controller {
 		}
 	}
 	public function logout(){
-		$this->session->unset_userdata('user');
+		$this->login->offline();
 		redirect(base_url());
 	}
 	public function chathome($u){
+		$this->load->model('chat');
+		$messages = $this->chat->messages($u);
+		$message_names = $this->chat->message_names($u);
+		$online = $this->chat->online();
+		$user_details = array('username' => $u);
+		$res = array('message_names'=>$message_names,'messages'=>$messages,'online'=>$online,'user_details'=>$user_details);
 		if($this->session->has_userdata('user')){
-			$this->load->view('header',array('username' => $u));
+			$this->load->view('header',$res);
 			$this->load->view('chathome_view');
 			$this->load->view('footer');
 		}

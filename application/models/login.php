@@ -12,10 +12,15 @@ class Login extends CI_Model {
 
 		if (isset($row))
 		{
+			$this->db->query("update users set status='Online' where username='".$u."'");
 			return $row;
 		}
 		else{
 			return false;
 		}
+	 }
+	 public function offline(){
+		 $this->db->query("update users set status='Offline' where username='".$this->session->user."'");
+		 $this->session->unset_userdata('user');
 	 }
 }

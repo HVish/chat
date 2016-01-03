@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="well">
-		<h3>Hello <strong><?php echo $username;?></strong></h3>
+		<h3>Hello <strong><?php echo $user_details['username'];?></strong></h3>
 	</div>
 	<div class="row userbody">
 		<div class="col-sm-3 panel panel-primary ">
@@ -8,21 +8,11 @@
 				<h3>Messages</h3>
 			</div>
 			<div class="panel-body list-group message">
-				<a class="list-group-item"><span class="badge">12</span> New</a>
-				<a class="list-group-item"><span class="badge">5</span> Deleted</a> 
-				<a class="list-group-item"><span class="badge">3</span> Warnings</a> 
-				<a class="list-group-item"><span class="badge">12</span> New</a>
-				<a class="list-group-item"><span class="badge">5</span> Deleted</a> 
-				<a class="list-group-item"><span class="badge">3</span> Warnings</a> 
-				<a class="list-group-item"><span class="badge">12</span> New</a>
-				<a class="list-group-item"><span class="badge">5</span> Deleted</a> 
-				<a class="list-group-item"><span class="badge">3</span> Warnings</a> 
-				<a class="list-group-item"><span class="badge">12</span> New</a>
-				<a class="list-group-item"><span class="badge">5</span> Deleted</a> 
-				<a class="list-group-item"><span class="badge">3</span> Warnings</a>
-				<a class="list-group-item"><span class="badge">12</span> New</a>
-				<a class="list-group-item"><span class="badge">5</span> Deleted</a> 
-				<a class="list-group-item"><span class="badge">3</span> Warnings</a> 
+				<?php 
+					foreach($message_names as $row){ 
+						echo '<a class="list-group-item"><span class="badge"></span>'."$row[username]".'</a>';
+					}
+				?>
 			</div>
 		</div>
 		<div class="col-sm-6">
@@ -51,7 +41,7 @@
 		</div>
 		<div class="col-sm-3 panel panel-primary ">
 			<div class="panel-heading">
-				<h3>Online friends</h3>
+				<h3>Online</h3>
 			</div>
 			<div class="panel-body list-group online">
 				<a class="list-group-item"><span class="badge">12</span> New</a>

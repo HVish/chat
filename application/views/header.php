@@ -30,10 +30,10 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="#"><span class="glyphicon glyphicon-user"></span> 
-							<?php if(isset($username)) echo $username; else echo "Sign Up"?></a></li>
+							<?php if(isset($user_details['username'])) echo $user_details['username']; else echo "Sign Up"?></a></li>
 							<li><a href="<?php echo base_url()."index.php/home/";
-								if(isset($username)) echo "logout";?>"><span class="glyphicon glyphicon-log-in"></span>
-							<?php if(isset($username)) echo "Log Out"; else echo "Login"?></a></li>
+								if(isset($user_details['username'])) echo "logout";?>"><span class="glyphicon glyphicon-log-in"></span>
+							<?php if(isset($user_details['username'])) echo "Log Out"; else echo "Login"?></a></li>
 						</ul>
 					</div>
 				</div>
