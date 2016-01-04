@@ -95,7 +95,18 @@ Styling Chat home
 .chat{
     height: 36.5vh;
     overflow-y: auto;
+    padding: 0 20px 10px;
 }
+
+.chat hr {
+    margin: 5px 0;
+}
+
+.chat p {
+    padding-left: 8px;
+    margin-bottom: 0px;
+}
+
 .userinput{
     resize: none;
     width: 100%;

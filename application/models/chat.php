@@ -22,12 +22,7 @@ class Chat extends CI_Model {
 		 $msg = $query->result_array();
 		 $counter = 0;
 		 foreach($msg as $row){
-			 if($row['touser_id'] != $user_id){
-				 $msg[$counter]['name'] = $this->get_UserName($row['touser_id']);
-			 }
-			 else{
-				 $msg[$counter]['name'] = $this->get_UserName($row['fruser_id']);
-			 }
+			 $msg[$counter]['name'] = $this->get_UserName($row['fruser_id']);
 			 $counter++;
 		 }
 		 return $msg;

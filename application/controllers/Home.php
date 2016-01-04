@@ -51,4 +51,13 @@ class Home extends CI_Controller {
 			redirect(base_url());
 		}
 	}
+	public function getmessages($u){
+		$this->load->model('chat');
+		$messages = $this->chat->messages($u);
+		$user_id = $this->chat->get_UserID($u)[0]['user_id'];
+		foreach($messages as $msg){
+			echo "<h4><strong>$msg[name]</strong></h4>
+				<p>$msg[body]</p><hr>";
+		}
+	}
 }
