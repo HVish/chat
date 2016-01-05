@@ -6,8 +6,9 @@ class Chat extends CI_Model {
 		parent::__construct();
 		$this->load->database();
 	 }
-	 public function online(){
-		 
+	 public function online($u){
+		 $ol = $this->db->query("select username from users where username != '".$u."' and status like 'Online'")->result_array();
+		 return $ol;
 	 }
 	 public function get_UserID($un){
 		 return $this->db->query("select user_id from users where username='".$un."'")->result_array();

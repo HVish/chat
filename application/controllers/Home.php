@@ -39,7 +39,7 @@ class Home extends CI_Controller {
 		$this->load->model('chat');
 		$messages = $this->chat->messages($u);
 		$message_names = $this->chat->message_names($u);
-		$online = $this->chat->online();
+		$online = $this->chat->online($u);
 		$user_details = array('username' => $u);
 		$res = array('message_names'=>$message_names,'messages'=>$messages,'online'=>$online,'user_details'=>$user_details);
 		if($this->session->has_userdata('user')){
@@ -58,6 +58,14 @@ class Home extends CI_Controller {
 		foreach($messages as $msg){
 			echo "<h4><strong>$msg[name]</strong></h4>
 				<p>$msg[body]</p><hr>";
+		}
+	}
+	public function onlineusers($u){
+		$this->load->model('chat');
+		$online = $this->chat->online($u);
+		
+		foreach($online as $ol) {
+			echo '<a class="list-group-item">'.$ol['username'].'</a>';
 		}
 	}
 }
