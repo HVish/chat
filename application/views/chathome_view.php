@@ -1,6 +1,8 @@
 <div class="container">
 	<script>
+		var user=null;
 		function showmsg(str){
+			user=str;
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -13,10 +15,50 @@
 		}
 		
 		setInterval(function (){
-			$.ajax({url: "<?php echo base_url()."index.php/home/onlineusers/$user_details[username]";?>", success: function(result){
-				$(".online").html(result);
-			}});
+			$.ajax({
+				type:"POST",
+        		cache:false,
+				url: "<?php echo base_url()."index.php/home/onlineusers/$user_details[username]";?>", 
+				success: function(result){
+					$(".online").html(result);
+				}});
 		}, 3000);
+		setInterval(function(){
+			if(user != null){
+				$.ajax({
+					type:"POST",
+        			cache:false,
+					url:"<?php echo base_url()."index.php/home/getmessages/"?>" + user,
+					success: function(result){
+						$("#msgbody").html(result);
+					}});
+			}
+		},3000);
+		function sendmsg(id,msg,e){
+			if(e.keyCode == 13){
+				//alert("Enter pressed");
+				if(user != null){
+					$.ajax({
+						type:"POST",
+	        			cache:false,
+						data: {to:user,msg:msg},
+						url:"<?php echo base_url().'index.php/home/sendmsg'?>",
+						success: function(result){
+							id.value = "";
+							if(result == "falied"){
+								alert("failed to send msg!");
+							}
+						},
+						error: function(errors){
+							alert("failed to send msg! Check your internet connection...");	
+						}});
+				}
+				else{
+					id.value = "";
+					alert("select a conversation");
+				}
+			}
+		}
 	</script>
 	<div class="well">
 		<h3>Hello <strong><?php echo $user_details['username'];?></strong></h3>
@@ -43,7 +85,8 @@
 				
 			</div>
 			<div class="row">
-				<textarea class="col-sm-12 userinput" name="" id="" rows="4" placeholder="Type a message..."></textarea>
+				<textarea class="col-sm-12 userinput" name="" id="msgtype" rows="4" 
+					placeholder="Type a message..." onkeydown="sendmsg(this,this.value,event)"></textarea>
 			</div>
 		</div>
 		<div class="col-sm-3 panel panel-primary ">

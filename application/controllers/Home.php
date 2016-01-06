@@ -68,4 +68,15 @@ class Home extends CI_Controller {
 			echo '<a class="list-group-item">'.$ol['username'].'</a>';
 		}
 	}
+	public function sendmsg(){
+		$this->load->model('chat');
+		$to = $this->input->post('to');
+		$msg = $this->input->post('msg');
+		$fr = $this->session->user;
+		$data = array("to" => $to, "fr" => $fr, "msg" => $msg);
+		if($to != 'null'){
+			$res = $this->chat->send($data);
+			echo $res;
+		}
+	}
 }
