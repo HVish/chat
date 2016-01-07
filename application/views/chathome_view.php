@@ -33,7 +33,7 @@
 						$("#msgbody").html(result);
 					}});
 			}
-		},3000);
+		},1000);
 		function sendmsg(id,msg,e){
 			if(e.keyCode == 13){
 				//alert("Enter pressed");
@@ -95,7 +95,7 @@
 			</div>
 			<div class="panel-body list-group online">
 				<?php foreach($online as $ol) { ?>
-					<a class="list-group-item"><?php echo $ol['username'];?></a>
+					<a class="list-group-item" onclick="showmsg($(this).text())"><?php echo $ol['username'];?></a>
 				<?php } ?>
 			</div>
 		</div>

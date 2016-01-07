@@ -54,7 +54,7 @@ class Home extends CI_Controller {
 	public function getmessages($u){
 		$this->load->model('chat');
 		$messages = $this->chat->messages($u);
-		$user_id = $this->chat->get_UserID($u)[0]['user_id'];
+		$user_id = $this->chat->get_UserID($u);
 		foreach($messages as $msg){
 			echo "<h4><strong>$msg[name]</strong></h4>
 				<p>$msg[body]</p><hr>";
@@ -65,7 +65,7 @@ class Home extends CI_Controller {
 		$online = $this->chat->online($u);
 		
 		foreach($online as $ol) {
-			echo '<a class="list-group-item">'.$ol['username'].'</a>';
+			echo '<a class="list-group-item" onclick="showmsg($(this).text())">'.$ol['username'].'</a>';
 		}
 	}
 	public function sendmsg(){
